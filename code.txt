@@ -1,0 +1,111 @@
+import java.util.Scanner;
+
+public class CsapCocPortal {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String storedUser = "";
+        String storedPass = "";
+        boolean running = true;
+
+        // FIXED: String must be on a single line or concatenated with +
+        System.out.println("｡ﾟ•┈ა ♡ ໒┈• ｡ﾟ CSAP-COC PORTAL SYSTEM INITIALIZED ｡ﾟ•┈ა ♡ ໒┈• ｡ﾟ");
+
+        while (running) {
+            System.out.println("\n----------────── ⋆⋅☆⋅⋆ ──────----------");
+            System.out.println("       WELCOME TO CSAP-COC SCHOLAR'S HUB   ");
+            System.out.println("----------────── ⋆⋅☆⋅⋆ ──────----------");
+            System.out.println("1. About Us (Mission/Vision/LAKAD)");
+            System.out.println("2. City Scholarship (Rules & Priority)");
+            System.out.println("3. HK Scholarship (Benefits & Duties)");
+            System.out.println("4. Enrollment Roadmap (4-Step Process)");
+            System.out.println("5. Community Hub (Socials & Highlights)");
+            System.out.println("6. Login / Sign Up Portal");
+            System.out.println("7. Exit System");
+            System.out.print("Select a section: ");
+            
+            String choice = scanner.nextLine();
+
+            if (choice.equals("1")) {
+                System.out.println("\n ⬩➤ [ABOUT US: THE LAKAD PROGRAM]");
+                System.out.println("Mission: Empowering PHINMA COC scholars to lead with integrity.");
+                System.out.println("The 5 Pillars of LAKAD:");
+                System.out.println(" [L] - Leadership Development");
+                System.out.println(" [A] - Academic Excellence");
+                System.out.println(" [K] - Karakter (Character Building)");
+                System.out.println(" [A] - Active Citizenship");
+                System.out.println(" [D] - Dedication to Service");
+                System.out.println("History: A student-led coordination body founded to bridge");
+                System.out.println("the gap between the school and the 3,000+ scholars.");
+
+            } else if (choice.equals("2")) {
+                System.out.println("\n ⬩➤ [CITY SCHOLARSHIP GUIDELINES]");
+                System.out.println("Maintenance Rules:");
+                System.out.println(" - Maintain a GPA of at least 2.0 (85%)");
+                System.out.println(" - No Grade of 5.0 or Dropped (DRP) subjects.");
+                System.out.println(" - Must complete 7 Mandatory CSR/SDP activities per year.");
+                System.out.println("Priority Courses in CDO:");
+                System.out.println(" - BS Architecture, BS Civil Engineering, BS Nursing,");
+                System.out.println(" - BS Social Work, and BS Education.");
+
+            } else if (choice.equals("3")) {
+                System.out.println("\n ⬩➤ [HAWAK KAMAY (HK) SCHOLARSHIP]");
+                System.out.println("Benefits:");
+                System.out.println(" - HK50: 50% Tuition Discount");
+                System.out.println(" - HK75: 75% Tuition Discount");
+                System.out.println(" - HK100: 100% Tuition Discount (Full Scholarship)");
+                System.out.println("Duty Requirements:");
+                System.out.println(" - Scholarly duty hours at designated school offices.");
+                System.out.println(" - Participation in Grand Scholar Assemblies.");
+
+            } else if (choice.equals("4")) {
+                System.out.println("\n ⬩➤ [OFFICIAL ENROLLMENT ROADMAP]");
+                System.out.println("Step 1: Marketing (Voucher/Scholarship Validation)");
+                System.out.println("Step 2: Treasury (Downpayment & Accounting Clearance)");
+                System.out.println("Step 3: Registrar (Subject Loading & Sectioning)");
+                System.out.println("Step 4: CSDL (Final Verification & ID Validation)");
+                System.out.println("Note: Transferees must provide Honorable Dismissal.");
+
+            } else if (choice.equals("5")) {
+                System.out.println("\n ⬩➤ [COMMUNITY & MULTIMEDIA]");
+                System.out.println("1. Join Project AMIGO (Facebook Group)");
+                System.out.println("2. Watch Foundation Week Highlights");
+                System.out.println("3. View Scholar Pride Gallery");
+                System.out.print("Action: ");
+                String comm = scanner.nextLine();
+                if (comm.equals("1")) {
+                    System.out.println(">> Redirecting to FB Group...");
+                } else if (comm.equals("2")) {
+                    System.out.println(">> Playing Video: 'PHINMA Foundation Day 2026'...");
+                } else {
+                    System.out.println(">> Loading Image Gallery...");
+                }
+
+            } else if (choice.equals("6")) {
+                System.out.println("\n ⬩➤ [LOGIN/REGISTER]");
+                System.out.print("Account status (yes/no): ");
+                String status = scanner.nextLine();
+                if (status.equalsIgnoreCase("no")) {
+                    System.out.print("New User: "); storedUser = scanner.nextLine();
+                    System.out.print("New Pass: "); storedPass = scanner.nextLine();
+                    System.out.println("Account Created locally!");
+                } else {
+                    System.out.print("User: "); String u = scanner.nextLine();
+                    System.out.print("Pass: "); String p = scanner.nextLine();
+                    // Added a check to ensure user isn't empty
+                    if (!storedUser.isEmpty() && u.equals(storedUser) && p.equals(storedPass)) {
+                        System.out.println("LOGIN SUCCESS. Welcome back, Scholar!");
+                    } else {
+                        System.out.println("LOGIN FAILED. Check credentials.");
+                    }
+                }
+
+            } else if (choice.equals("7")) {
+                System.out.println("System Shutdown. Padayon, Scholar!");
+                running = false;
+            } else {
+                System.out.println("Error: Selection not recognized.");
+            }
+        }
+        scanner.close();
+    }
+}
